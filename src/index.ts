@@ -5,6 +5,8 @@ const server = express();
 const host = 'http://localhost:'
 const port = 5000;
 
+// recebendo json na App
+server.use(express.json())
 // usando routes.ts
 server.use(router)
 

@@ -1,15 +1,22 @@
 import { Request, Response } from 'express';
+import { CreateUserService } from '../services/CreateUserService';
 
 class CreateUserController{
     handle(req: Request, res: Response) {
-        return res.json([
-            {
-                name: "Wilian"
-            },
-            {
-                name: "Ana"
-            }
-        ])
+        
+        const createUserService = new CreateUserService();
+
+        const name = req.body.name;
+        const email = req.body.email;
+
+        if(name.length === 0 || email.length === 0) {
+            return res.status(400).json({mensagem: 'Preencha todos os campos'})
+        }
+
+        const user = createUserService.execute({name, email})
+
+        return res.status(201).json({user});
+
     }
 }
 
