@@ -1,4 +1,4 @@
-function soma(a, b) {
+function soma(a: number, b: number) {
     let valor = a + b;
     return valor;
 }
