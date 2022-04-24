@@ -1,6 +1,9 @@
-function soma(a: number, b: number) {
-    let valor = a + b;
-    return valor;
-}
+import express from 'express';
 
-console.log(soma(20, 10));
+const server = express();
+const port = 5000;
+
+// Servidor criado
+server.listen(port, () => {
+    console.log(`Server is running on ${port}`);
+})
